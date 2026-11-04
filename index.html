@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<!-- Говорим браузеру, что это страница HTML5 -->
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <!-- Эта строка нужна, чтобы сайт правильно выглядел на телефоне -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Актан — портфолио</title>
+  <!-- Подключаем наш файл со стилями -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ШАПКА САЙТА: логотип и меню -->
+  <header class="header">
+    <a class="logo" href="#top">Актан</a>
+
+    <!-- Кнопка-«бургер»: видна только на телефоне -->
+    <button class="menu-btn" id="menuBtn" type="button">Меню</button>
+
+    <!-- Навигация: ссылки на разделы страницы -->
+    <nav class="nav" id="nav">
+      <a href="#about">Обо мне</a>
+      <a href="#skills">Навыки</a>
+      <a href="#contact">Контакты</a>
+      <button class="theme-btn" id="themeBtn" type="button">Тёмная тема</button>
+    </nav>
+  </header>
+
+  <!-- ГЛАВНАЯ ЧАСТЬ СТРАНИЦЫ -->
+  <main id="top">
+
+    <!-- Раздел 1: Обо мне (фото + текст) -->
+    <section class="section" id="about">
+      <div class="about">
+        <img class="photo" src="images/photo.jpg" alt="Фото Актана">
+        <div class="card">
+          <h1>Привет, я Актан</h1>
+          <p>Я студент колледжа и учусь в сфере IT. Пока пробую разные направления и ищу своё. Умею делать макеты в Figma и верстать на HTML и CSS.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Раздел 2: Навыки -->
+    <section class="section" id="skills">
+      <h2 class="title">Навыки</h2>
+
+      <!-- Кнопки фильтра: data-filter говорит JS, какие карточки показать -->
+      <div class="filters">
+        <button class="filter-btn active" type="button" data-filter="all">Все</button>
+        <button class="filter-btn" type="button" data-filter="tech">Технические</button>
+        <button class="filter-btn" type="button" data-filter="personal">Личные</button>
+      </div>
+
+      <!-- data-type у карточки: к какой группе она относится -->
+      <ul class="skills">
+        <li class="card skill" data-type="tech">Figma</li>
+        <li class="card skill" data-type="tech">HTML и CSS</li>
+        <li class="card skill" data-type="personal">Общительность</li>
+        <li class="card skill" data-type="personal">Быстро учусь</li>
+        <li class="card skill" data-type="personal">Английский: базовый</li>
+      </ul>
+    </section>
+
+    <!-- Раздел 3: Контакты и форма -->
+    <section class="section" id="contact">
+      <h2 class="title">Контакты</h2>
+      <div class="contact">
+
+        <!-- Левая часть: мои контакты -->
+        <div class="card">
+          <p>Почта: <a href="mailto:gavrusamotrrskin@gmail.com">gavrusamotrrskin@gmail.com</a></p>
+          <p>Телефон: <a href="tel:+996706220032">0706220032</a></p>
+          <p>Instagram: <a href="https://www.instagram.com/nigga_realy_black?rpxt=bTk2cjZzenEwZDJ3" target="_blank" rel="noopener">открыть профиль</a></p>
+        </div>
+
+        <!-- Правая часть: форма. novalidate отключает встроенные проверки браузера, мы проверяем сами -->
+        <form class="card" id="form" novalidate>
+          <!-- label связан с полем через for и id -->
+          <label for="name">Имя</label>
+          <input type="text" id="name" name="name">
+          <p class="error" id="nameError"></p>
+
+          <label for="email">Почта</label>
+          <input type="email" id="email" name="email">
+          <p class="error" id="emailError"></p>
+
+          <label for="message">Сообщение</label>
+          <textarea id="message" name="message" rows="4"></textarea>
+          <p class="error" id="messageError"></p>
+
+          <button type="submit">Отправить</button>
+          <!-- Сюда JS напишет сообщение об успехе -->
+          <p class="success" id="success"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ПОДВАЛ САЙТА -->
+  <footer class="footer">
+    <p>© 2026 Актан</p>
+  </footer>
+
+  <!-- Подключаем наш файл с JavaScript. Он в конце, чтобы страница успела загрузиться -->
+  <script src="js/script.js"></script>
+</body>
+</html>

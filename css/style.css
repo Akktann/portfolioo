@@ -1,0 +1,283 @@
+/* ===== Общие настройки ===== */
+
+/* Считаем ширину вместе с отступами, так проще считать размеры */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;                                  /* убираем стандартный отступ страницы */
+  font-family: Arial, sans-serif;             /* шрифт сайта */
+  font-size: 18px;
+  line-height: 1.5;
+  color: #14301f;                             /* тёмно-зелёный цвет текста */
+  /* Зелёные полосы на фоне, как в макете */
+  background: repeating-linear-gradient(90deg, #2f8f4e 0, #2f8f4e 40px, #3aa35c 40px, #3aa35c 80px);
+}
+
+html {
+  scroll-behavior: smooth;                    /* плавная прокрутка по ссылкам меню */
+}
+
+a {
+  color: #14301f;
+}
+
+/* ===== Шапка и меню ===== */
+
+.header {
+  display: flex;                              /* ставим элементы в ряд */
+  justify-content: space-between;             /* логотип слева, меню справа */
+  align-items: center;
+  flex-wrap: wrap;                            /* на телефоне можно переносить на новую строку */
+  padding: 16px 24px;
+  background: #14301f;
+}
+
+.logo {
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.nav a {
+  color: #ffffff;
+  margin-left: 24px;
+  text-decoration: none;
+}
+
+.nav a:hover {
+  text-decoration: underline;
+}
+
+/* Кнопка меню на компьютере спрятана */
+.menu-btn {
+  display: none;
+  padding: 8px 16px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* ===== Разделы и карточки ===== */
+
+.section {
+  max-width: 1000px;                          /* чтобы на большом экране не растягивалось */
+  margin: 0 auto;                             /* ставим раздел по центру */
+  padding: 64px 24px;
+}
+
+.title {
+  color: #ffffff;
+  font-size: 36px;
+  margin: 0 0 24px;
+}
+
+/* Светлая карточка, в ней лежит текст */
+.card {
+  background: #f4f6ef;
+  padding: 28px;
+  border: 3px solid #14301f;
+}
+
+/* ===== Раздел «Обо мне» ===== */
+
+.about {
+  display: flex;                              /* фото и текст в ряд */
+  gap: 24px;
+  align-items: center;
+}
+
+.photo {
+  width: 320px;
+  max-width: 100%;                            /* фото не вылезает за экран */
+  height: auto;
+  border: 3px solid #14301f;
+}
+
+.about h1 {
+  margin-top: 0;
+  font-size: 36px;
+}
+
+/* ===== Навыки ===== */
+
+.skills {
+  list-style: none;                           /* убираем точки у списка */
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;                            /* карточки переносятся на новую строку */
+  gap: 16px;
+}
+
+/* Три карточки в ряд, на узком экране переносятся */
+.skills .card {
+  flex: 1 1 280px;
+}
+
+/* ===== Контакты и форма ===== */
+
+.contact {
+  display: flex;
+  gap: 24px;
+}
+
+.contact .card {
+  flex: 1;                                    /* две карточки делят ширину поровну */
+}
+
+label {
+  display: block;                             /* подпись на своей строке */
+  margin-top: 12px;
+  font-weight: bold;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #14301f;
+  font-family: inherit;
+}
+
+button[type="submit"] {
+  margin-top: 16px;
+  padding: 10px 24px;
+  font-size: 16px;
+  background: #14301f;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+}
+
+/* Текст ошибки красный, пустой — не занимает место */
+.error {
+  color: #b00020;
+  margin: 4px 0 0;
+  font-size: 14px;
+}
+
+.success {
+  color: #1b6b32;
+  font-weight: bold;
+}
+
+/* ===== Подвал ===== */
+
+.footer {
+  text-align: center;
+  padding: 16px;
+  background: #14301f;
+  color: #ffffff;
+}
+
+.footer p {
+  margin: 0;
+}
+
+/* ===== Телефон (экран уже 700px) ===== */
+
+@media (max-width: 700px) {
+  /* Показываем кнопку меню */
+  .menu-btn {
+    display: block;
+  }
+
+  /* Меню по умолчанию спрятано и идёт столбиком */
+  .nav {
+    display: none;
+    width: 100%;
+    margin-top: 12px;
+  }
+
+  .nav a {
+    display: block;
+    margin: 0;
+    padding: 10px 0;
+  }
+
+  /* Когда JS добавит класс open, меню показывается */
+  .nav.open {
+    display: block;
+  }
+
+  /* Всё складываем в один столбик */
+  .about,
+  .contact {
+    flex-direction: column;
+  }
+
+  .skills .card {
+    width: 100%;
+  }
+}
+
+/* ===== Кнопка темы и фильтры ===== */
+
+.theme-btn,
+.filter-btn {
+  padding: 8px 16px;
+  font-size: 16px;
+  cursor: pointer;
+  border: 2px solid #14301f;
+  background: #f4f6ef;
+  color: #14301f;
+}
+
+.theme-btn {
+  margin-left: 24px;
+}
+
+.filters {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+/* Выбранная кнопка фильтра темнее */
+.filter-btn.active {
+  background: #14301f;
+  color: #ffffff;
+}
+
+/* Этот класс JS добавляет карточке, чтобы её спрятать */
+.hidden {
+  display: none;
+}
+
+/* ===== Тёмная тема (класс dark добавляет JS на body) ===== */
+
+body.dark {
+  background: repeating-linear-gradient(90deg, #0f2a1a 0, #0f2a1a 40px, #153a24 40px, #153a24 80px);
+  color: #e8efe9;
+}
+
+body.dark .card {
+  background: #1c2b22;
+  border-color: #6fcf8f;
+}
+
+body.dark a {
+  color: #9be3b0;
+}
+
+body.dark .logo,
+body.dark .nav a {
+  color: #ffffff;
+}
+
+body.dark input,
+body.dark textarea {
+  background: #12201a;
+  color: #ffffff;
+  border-color: #6fcf8f;
+}
+
+/* На телефоне кнопка темы стоит в меню без отступа слева */
+@media (max-width: 700px) {
+  .theme-btn {
+    margin: 8px 0 0;
+  }
+}
